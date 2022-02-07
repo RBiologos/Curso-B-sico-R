@@ -42,6 +42,7 @@ mi_df <- data.frame("entero" = 1:4,
                     "cadena" = as.character(c("a", "b", "c", "d")))
 mi_df
 class(mi_df)
+str(mi_df)
 
 ## Lista ----
 mi_vector <- 1:10
@@ -51,4 +52,4 @@ mi_df     <- data.frame("num" = 1:3, "let" = c("a", "b", "c"))
 mi_lista <- list("un_vector" = mi_vector, "una_matriz" = mi_matriz, "un_df" = mi_df)
 
 mi_lista
-str(mi_df)
+str(mi_lista)
