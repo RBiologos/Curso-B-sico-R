@@ -1,6 +1,10 @@
 library(entropart)
+library(BiodiversityR)
 
 data(BCI)
+view(BCI)
+dim(BCI)
+
 
 # Estimadores de riqueza por unidad de muestreo
 est.Sites <- estimateR(BCI)

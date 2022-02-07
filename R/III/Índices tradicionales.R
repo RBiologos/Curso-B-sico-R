@@ -1,69 +1,77 @@
-## ÍNDICES TRADICIONALES
-
+## ?NDICES TRADICIONALES
 library(entropart)
 library(iNEXT)
 library(vegan)
 library(dplyr)
+library(BiodiversityR)
+
+data(BCI)
+view(BCI)
+dim(BCI)
 
 ## MARGALEF Y MENHINICK
-# Vector para almacenar el número de especies por unidad de muestreo
+# Vector para almacenar el n?mero de especies por unidad de muestreo
 S <- c()
 
 # Ciclo para recorrer la matriz de datos
 for(i in 1:nrow(BCI)){ # Ciclo desde 1 hasta el total de filas de los datos (unidades de muestreo)
-  S.tmp <- length(which(BCI[i, ] > 0)) # Número de especies (columnas) con abundancia > 0 por unidad de muestreo
-  S <- append(S, S.tmp) # Añadimos el número de especies del sitio i al vector de especies
+  S.tmp <- length(which(BCI[i, ] > 0)) # N?mero de especies (columnas) con abundancia > 0 por unidad de muestreo
+  S <- append(S, S.tmp) # A?adimos el n?mero de especies del sitio i al vector de especies
 }
 
 # Suma de las abundancias por unidad de muestreo (filas)
 N <- rowSums(BCI)
 
-# Índice de Margalef
+# ?ndice de Margalef
 Margalef <- (S - 1) / log(N)
 
-# Índice de Menhinick
+# ?ndice de Menhinick
 Menhinick <- S / sqrt(N)
 
-# Combinamos ambos índices en una misma tabla
+# Combinamos ambos ?ndices en una misma tabla
 indices <- cbind(Ma = Margalef, Me = Menhinick)
 
-## Creamos gráficos para interpretación de valores
-# Histograma índice de Margalef
-hist(indices[, 1], # Valores de todas las filas de la primera columna de la tabla índices
-     xlab = "Margalef", # Etiqueta del eje X
-     main = NA) # Sin  título principal
+head(indices, 10)
 
-# Histograma índice de Menhinick
-hist(indices[, 2], # Valores de todas las filas de la segunda columna de la tabla índices
+## Creamos gr?ficos para interpretaci?n de valores
+# Histograma ?ndice de Margalef
+hist(indices[, 1], # Valores de todas las filas de la primera columna de la tabla ?ndices
+     xlab = "Margalef", # Etiqueta del eje X
+     main = NA) # Sin  t?tulo principal
+
+# Histograma ?ndice de Menhinick
+hist(indices[, 2], # Valores de todas las filas de la segunda columna de la tabla ?ndices
      xlab = "Menhinick", # Etiqueta del eje Y
      main = NA)
 
 
-## ÍNDICES DE DOMINANCIA Y EQUITATIVIDAD
-# Índice de Gini-Simpson
+## ?NDICES DE DOMINANCIA Y EQUITATIVIDAD
+# ?ndice de Gini-Simpson
 Simpson <- diversity(BCI, index  = "simpson")
 
-# Índice de Shannon
+# ?ndice de Shannon
 Shannon <- diversity(BCI, index = "shannon")
 
-# Índice de Pielou
+# ?ndice de Pielou
 Pielou <- Shannon / log(S) 
 
-# Combinamos los índices en una tabla
+# Combinamos los ?ndices en una tabla
 indices <- cbind(Simpson = Simpson, Shannon = Shannon, Pielou = Pielou)
+head(indices, 10)
 
-## Creamos gráficos para interpretación de valores
-#Histograma índice de Simpson
+## Creamos gr?ficos para interpretaci?n de valores
+#Histograma ?ndice de Simpson
 hist(indices[, 1],
      xlab = "Simpson",
      main = NA)
 
-#Histograma índice de Shannon
+#Histograma ?ndice de Shannon
 hist(indices[, 2],
      xlab = "Shannon",
      main = NA)
 
-#Histograma índice de Pielou
+#Histograma ?ndice de Pielou
 hist(indices[, 3],
      xlab = "Pielou",
      main = NA)
+

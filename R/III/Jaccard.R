@@ -3,12 +3,12 @@ library(ggdendro)
 library(dplyr)
 library(vegan)
 
-A <- matrix(c(2,5,2,1,0,0,0,0,1,0,0,0,0,1,3,5,6,0,0,1,0,0,0,2,0,0,1,2,7,2,4,6,2,5,1,0,0,1,0,0,0,1,0,0,3,5,4,0,0,1,0,0,1,0,0,2,0,3,5,7,3,1,4,0,1,0,0,0,0,2,0,0,0,1,3,4,6,0,0,1), byrow=T, nrow=8, ncol=10)
-colnames(A) <- letters[1:10]
-rownames(A) <- LETTERS[1:8]
+data(BCI)
+A <- BCI[1:10,]
+
 print(A)
 
-# calculate Jaccard Dissimilarity
+# calculate Dissimilarity
 a.bray <- vegdist(A, method = "bray")
 a.bray <- as.matrix(a.bray)
 a.bray
