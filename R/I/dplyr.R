@@ -10,28 +10,32 @@ View(starwars)
 ## Filter data by variable
 a <- starwars %>%
   filter(species == "Droid")
-
 dim(a)
+View(a)
 
 ## Select variable
 b <- starwars %>% 
   select(name, ends_with("color"))
+View(b)
 
-b <- starwars %>% 
+d <- starwars %>% 
   select(name, height, mass)
 
 ## Create a variable
-a <-starwars %>% 
+f <- starwars %>% 
   mutate(nueva = mass + height) %>%
   select(name, nueva, height, mass)
+View(f)
 
 ## Order variable
-starwars %>% 
+c <- starwars %>% 
   arrange(desc(height))
 
 ## Group variable and filter
-starwars %>%
+e <- starwars %>%
   group_by(species) %>%
   summarise(n = n(),
             mass = mean(mass, na.rm = TRUE)) %>%
   filter(n > 1, mass > 50)
+
+View(e)

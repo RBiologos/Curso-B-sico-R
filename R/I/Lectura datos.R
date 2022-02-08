@@ -8,8 +8,9 @@ txt <- read.table(choose.files(), # Nombre del archivo
 txt
 
 # Archivos .csv
-url <- "https://vincentarelbundock.github.io/Rdatasets/csv/boot/cav.csv"
-csv <- read.csv(choose.files(), # Nombre del archivo
+# Puedes leer bases de datos en línea directo
+url <- "https://vincentarelbundock.github.io/Rdatasets/csv/AER/STAR.csv"
+csv <- read.csv(url, # Nombre del archivo
                   # Tambi?n puedes especificar la direcci?n
                   header = TRUE)
 csv
