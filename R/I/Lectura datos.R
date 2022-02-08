@@ -3,13 +3,13 @@
 
 # Archivos .txt
 txt <- read.table(choose.files(), # Nombre del archivo
-           # Tambi?n puedes especificar la direcci?n
+           # Tambi?n puedes especificar la dirección
            header = TRUE)
 txt
 
 # Archivos .csv
 url <- "https://vincentarelbundock.github.io/Rdatasets/csv/boot/cav.csv"
-csv <- read.csv(url, # Nombre del archivo
+csv <- read.csv(choose.files(), # Nombre del archivo
                   # Tambi?n puedes especificar la direcci?n
                   header = TRUE)
 csv

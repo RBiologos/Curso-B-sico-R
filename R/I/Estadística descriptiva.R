@@ -21,9 +21,6 @@ median(iris$Sepal.Width)
 # Muestra el valor de la varianza de la variable
 var(iris$Sepal.Width)
 
-# Muestra los nombres de nuestras variables
-names(iris)
-
 # Muestra el valor de la desviación estándar
 sd(iris$Sepal.Length)
 

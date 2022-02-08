@@ -8,21 +8,26 @@ lapply(starwars, class)
 View(starwars)
 
 ## Filter data by variable
-starwars %>% 
+a <- starwars %>%
   filter(species == "Droid")
 
+dim(a)
+
 ## Select variable
-starwars %>% 
+b <- starwars %>% 
   select(name, ends_with("color"))
 
+b <- starwars %>% 
+  select(name, height, mass)
+
 ## Create a variable
-starwars %>% 
-  mutate(name, bmi = mass / ((height / 100)  ^ 2)) %>%
-  select(name:mass, bmi)
+a <-starwars %>% 
+  mutate(nueva = mass + height) %>%
+  select(name, nueva, height, mass)
 
 ## Order variable
 starwars %>% 
-  arrange(desc(mass))
+  arrange(desc(height))
 
 ## Group variable and filter
 starwars %>%
@@ -30,4 +35,3 @@ starwars %>%
   summarise(n = n(),
             mass = mean(mass, na.rm = TRUE)) %>%
   filter(n > 1, mass > 50)
-
