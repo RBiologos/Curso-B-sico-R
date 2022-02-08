@@ -6,15 +6,16 @@ library(dplyr)
 # vamos a utilizar la base de datos "Iris"
 
 # Muestra las 6 primeras filas de la base
-
-## Investigar intervalo???
 head(iris, 10)
 
 # Muestra las 10 primeras filas de la base
 head(iris, 10)
 
-# Muestra las 6 ?ltimas filas de la base
+# Muestra las 6 últimas filas de la base
 tail(iris)
+
+# Muestra un rango definido
+iris[10:17,]
 
 # Muestra las dimensiones de la base
 dim(iris)
